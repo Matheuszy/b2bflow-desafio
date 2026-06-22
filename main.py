@@ -35,17 +35,15 @@ def send_whatsapp(phone: str, name: str):
     """Envia a mensagem de saudação via Z-API para um número de WhatsApp."""
 
     # Pego as credenciais da Z-API do .env
-    instance_id  = os.getenv("ZAPI_INSTANCE_ID")
-    token        = os.getenv("ZAPI_TOKEN")
-    client_token = os.getenv("ZAPI_CLIENT_TOKEN")
+    instance_id = os.getenv("ZAPI_INSTANCE_ID")
+    token       = os.getenv("ZAPI_TOKEN")
 
     # Monto a URL do endpoint de envio de texto da Z-API
     url = f"https://api.z-api.io/instances/{instance_id}/token/{token}/send-text"
 
-    # O Client-Token é exigido pela Z-API como camada extra de autenticação
+    # Header padrão da Z-API
     headers = {
-        "Content-Type": "application/json",
-        "Client-Token": client_token
+        "Content-Type": "application/json"
     }
 
     # Monto o corpo da requisição com o número e a mensagem personalizada
