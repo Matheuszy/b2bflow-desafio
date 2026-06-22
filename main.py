@@ -57,9 +57,9 @@ def send_whatsapp(phone: str, name: str):
 
     # Verifico se o envio foi bem-sucedido e registro no log
     if response.status_code == 200:
-        logging.info(f"✅ Mensagem enviada para {name} ({phone})")
+        logging.info(f"✅ Mensagem enviada para {name}")
     else:
-        logging.error(f"❌ Falha ao enviar para {name} ({phone}): {response.text}")
+        logging.error(f"❌ Falha ao enviar para {name}: {response.text}")
 
 
 def main():
